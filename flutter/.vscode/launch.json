@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "arknights",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "arknights_game_data_api",
+            "cwd": "packages/arknights_game_data_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "item_repository",
+            "cwd": "packages/item_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "operator_repository",
+            "cwd": "packages/operator_repository",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "penguin_stats_api",
+            "cwd": "packages/penguin_stats_api",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "stage_repository",
+            "cwd": "packages/stage_repository",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}

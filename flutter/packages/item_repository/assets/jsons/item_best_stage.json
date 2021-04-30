@@ -1,0 +1,125 @@
+[
+    {
+        "name": "扭转醇",
+        "totalBest": [
+            "R8-2",
+            "4-4"
+        ],
+        "singleBest": [
+            "6-11"
+        ]
+    },
+    {
+        "name": "轻锰矿",
+        "totalBest": [
+            "R8-10",
+            "4-7"
+        ],
+        "singleBest": [
+            "7-16"
+        ]
+    },
+    {
+        "name": "研磨石",
+        "totalBest": [
+            "7-17",
+            "4-8"
+        ],
+        "singleBest": [
+            "4-8"
+        ]
+    },
+    {
+        "name": "RMA70-12",
+        "totalBest": [
+            "4-9"
+        ],
+        "singleBest": [
+            "7-10",
+            "R8-9"
+        ]
+    },
+    {
+        "name": "固源岩组",
+        "totalBest": [
+            "1-7"
+        ],
+        "singleBest": [
+            "6-5",
+            "7-6"
+        ]
+    },
+    {
+        "name": "全新装置",
+        "totalBest": [
+            "7-15"
+        ],
+        "singleBest": [
+            "7-15"
+        ]
+    },
+    {
+        "name": "聚酸酯组",
+        "totalBest": [
+            "7-4"
+        ],
+        "singleBest": [
+            "7-4"
+        ]
+    },
+    {
+        "name": "糖组",
+        "totalBest": [
+            "4-2",
+            "5-2"
+        ],
+        "singleBest": [
+            "M8-7"
+        ]
+    },
+    {
+        "name": "异铁组",
+        "totalBest": [
+            "S4-1"
+        ],
+        "singleBest": [
+            "7-18"
+        ]
+    },
+    {
+        "name": "酮凝集组",
+        "totalBest": [
+            "JT8-3"
+        ],
+        "singleBest": [
+            "JT8-3"
+        ]
+    },
+    {
+        "name": "凝胶",
+        "totalBest": [
+            "JT8-2"
+        ],
+        "singleBest": [
+            "JT8-2"
+        ]
+    },
+    {
+        "name": "炽合金",
+        "totalBest": [
+            "R8-7"
+        ],
+        "singleBest": [
+            "S3-6"
+        ]
+    },
+    {
+        "name": "晶体元件",
+        "totalBest": [
+            "R8-11"
+        ],
+        "singleBest": [
+            "R8-11"
+        ]
+    }
+]
