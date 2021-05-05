@@ -1,10 +1,9 @@
-import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'operator_image.g.dart';
 
 @JsonSerializable()
-class OperatorImage extends Equatable {
+class OperatorImage {
   const OperatorImage({
     required this.name,
     required this.headUrls,
@@ -16,9 +15,8 @@ class OperatorImage extends Equatable {
   Map<String, dynamic> toJson() => _$OperatorImageToJson(this);
 
   final String name;
+  @JsonKey(name: "heads")
   final List<String> headUrls;
+  @JsonKey(name: "images")
   final List<String> imageUrls;
-
-  @override
-  List<Object?> get props => [name, headUrls, imageUrls];
 }

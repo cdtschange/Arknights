@@ -29,8 +29,7 @@ class ZoneBloc extends Bloc<ZoneEvent, ZoneState> {
   Stream<ZoneState> _mapZoneRequestEventToState(ZoneRequestEvent event) async* {
     yield ZoneLoadInProgress();
     try {
-      //TODO
-      final zones = await _stageRepository.fetchZones(false); //!isLoaded
+      final zones = await _stageRepository.fetchZones(!isLoaded);
       isLoaded = true;
       yield ZoneLoadSuccess(zones: zones);
     } catch (e) {

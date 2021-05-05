@@ -29,8 +29,7 @@ class StageBloc extends Bloc<StageEvent, StageState> {
       StageRequestEvent event) async* {
     yield StageLoadInProgress();
     try {
-      //TODO
-      final stages = await _stageRepository.fetchStages(false); //!isLoaded
+      final stages = await _stageRepository.fetchStages(!isLoaded);
       isLoaded = true;
       yield StageLoadSuccess(stages: stages);
     } catch (e) {

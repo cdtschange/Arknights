@@ -96,6 +96,7 @@ class AppView extends StatelessWidget {
     return ChangeNotifierProvider<AppState>(
         create: (_) => appState,
         child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
           title: 'Arknights',
           theme: ThemeData(
             primaryColor: Color(0xFF343434),

@@ -9,6 +9,7 @@ part 'operator_image_event.dart';
 part 'operator_image_state.dart';
 
 class OperatorImageBloc extends Bloc<OperatorImageEvent, OperatorImageState> {
+  bool isLoaded = false;
   final OperatorRepository _operatorRepository;
 
   OperatorImageBloc({required OperatorRepository operatorRepository})
@@ -28,7 +29,9 @@ class OperatorImageBloc extends Bloc<OperatorImageEvent, OperatorImageState> {
       OperatorImageRequestEvent event) async* {
     yield OperatorImageLoadInProgress();
     try {
-      final operatorImages = await _operatorRepository.fetchOperatorImages();
+      final operatorImages =
+          await _operatorRepository.fetchOperatorImages(refresh: !isLoaded);
+      isLoaded = true;
       yield OperatorImageLoadSuccess(operatorImages: operatorImages);
     } catch (e) {
       yield OperatorImageLoadFailure(message: e.toString());

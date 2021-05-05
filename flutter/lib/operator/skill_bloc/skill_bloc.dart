@@ -29,9 +29,7 @@ class SkillBloc extends Bloc<SkillEvent, SkillState> {
       SkillRequestEvent event) async* {
     yield SkillLoadInProgress();
     try {
-      //TODO
-      final skills =
-          await _operatorRepository.fetchSkills(refresh: false); //!isLoaded
+      final skills = await _operatorRepository.fetchSkills(refresh: !isLoaded);
       isLoaded = true;
       yield SkillLoadSuccess(skills: skills);
     } catch (e) {

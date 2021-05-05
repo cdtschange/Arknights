@@ -54,6 +54,26 @@ class SkillsRequestFailure implements Exception {
   }
 }
 
+/// Exception thrown when fetch skill images fails.
+class SkillImagesRequestFailure implements Exception {
+  final String message;
+  SkillImagesRequestFailure({required this.message});
+  @override
+  String toString() {
+    return message;
+  }
+}
+
+/// Exception thrown when fetch operator images fails.
+class OperatorImagesRequestFailure implements Exception {
+  final String message;
+  OperatorImagesRequestFailure({required this.message});
+  @override
+  String toString() {
+    return message;
+  }
+}
+
 /// {@template arknights_game_data_api_client}
 /// API Client which wraps the [ArknightsGameData API](https://raw.githubusercontent.com).
 /// {@endtemplate}
@@ -175,6 +195,54 @@ class ArknightsGameDataApiClient {
       return json.values.map((e) => Skill.fromJson(e)).toList();
     } catch (e) {
       throw SkillsRequestFailure(message: e.toString());
+    }
+  }
+
+  /// Fetch skill images [Map<String, String>] `/cdtschange/arknights/main/python-script/output/operator_skill.json`.
+  Future<Map<String, String>> skillImageTable() async {
+    final request = Uri.https(_baseUrl,
+        '/cdtschange/arknights/main/python-script/output/operator_skill.json');
+    try {
+      final response = await _httpClient.get(request);
+      if (response.statusCode != 200) {
+        throw SkillImagesRequestFailure(
+            message: 'Request failed: ${response.toString()}');
+      }
+      final json = jsonDecode(response.body) as Map<String, dynamic>;
+
+      if (json.isEmpty) {
+        throw SkillImagesRequestFailure(
+            message: 'Request failed: ${response.toString()}');
+      }
+      return Map<String, String>.from(json);
+    } catch (e) {
+      throw SkillImagesRequestFailure(message: e.toString());
+    }
+  }
+
+  /// Fetch operator images [List<OperatorImage>] `/cdtschange/arknights/main/python-script/output/operator_image.json`.
+  Future<List<OperatorImage>> operatorImageTable() async {
+    final request = Uri.https(_baseUrl,
+        '/cdtschange/arknights/main/python-script/output/operator_image.json');
+    try {
+      final response = await _httpClient.get(request);
+      if (response.statusCode != 200) {
+        throw OperatorImagesRequestFailure(
+            message: 'Request failed: ${response.toString()}');
+      }
+      final json = jsonDecode(response.body) as Map<String, dynamic>;
+
+      if (json.isEmpty) {
+        throw OperatorImagesRequestFailure(
+            message: 'Request failed: ${response.toString()}');
+      }
+      return json.entries.map((e) {
+        final value = e.value;
+        value['name'] = e.key;
+        return OperatorImage.fromJson(value);
+      }).toList();
+    } catch (e) {
+      throw OperatorImagesRequestFailure(message: e.toString());
     }
   }
 }

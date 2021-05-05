@@ -29,6 +29,10 @@ class OperatorImageFailure extends BaseFailure {
   OperatorImageFailure({required String message}) : super(message: message);
 }
 
+class SkillImageFailure extends BaseFailure {
+  SkillImageFailure({required String message}) : super(message: message);
+}
+
 class OperatorDataFailure extends BaseFailure {
   OperatorDataFailure({required String message}) : super(message: message);
 }
@@ -144,9 +148,7 @@ class OperatorRepository {
               },
               refresh: refresh);
 
-      final content = await rootBundle.loadString(
-          'packages/operator_repository/assets/jsons/operator_skill.json');
-      final json = jsonDecode(content) as Map;
+      final json = await fetchSkillImages(refresh: refresh);
       return skills
           .map((e) => e.toSkill)
           .map((e) => e.copyWith(imageUrl: json[e.name]))
@@ -156,21 +158,45 @@ class OperatorRepository {
     }
   }
 
-  Future<List<OperatorImage>> fetchOperatorImages() async {
+  Future<Map<String, String>> fetchSkillImages({required bool refresh}) async {
     try {
-      final content = await rootBundle.loadString(
-          'packages/operator_repository/assets/jsons/operator_image.json');
-      final json = jsonDecode(content) as Map;
+      final skillImages = await _fetchDataWithStore<Map<String, String>>(
+          key: "skill_image_table",
+          request: () async {
+            return await _arknightsGameDataApiClient.skillImageTable();
+          },
+          objectToJson: (obj) {
+            return obj;
+          },
+          jsonToObject: (json) {
+            return Map<String, String>.from(json as Map);
+          },
+          refresh: refresh);
+      return skillImages;
+    } catch (e) {
+      throw SkillImageFailure(message: e.toString());
+    }
+  }
 
-      if (json.isEmpty) {
-        throw OperatorImageFailure(message: 'Json invalid');
-      }
-      final items = json.entries.map((e) {
-        final value = e.value;
-        value['name'] = e.key;
-        return OperatorImage.fromJson(value);
-      }).toList();
-      return items;
+  Future<List<OperatorImage>> fetchOperatorImages(
+      {required bool refresh}) async {
+    try {
+      final operatorImages =
+          await _fetchDataWithStore<List<arknightsGameDataApi.OperatorImage>>(
+              key: "operator_image_table",
+              request: () async {
+                return await _arknightsGameDataApiClient.operatorImageTable();
+              },
+              objectToJson: (obj) {
+                return obj.map((e) => e.toJson()).toList();
+              },
+              jsonToObject: (json) {
+                return (json as List)
+                    .map((e) => arknightsGameDataApi.OperatorImage.fromJson(e))
+                    .toList();
+              },
+              refresh: refresh);
+      return operatorImages.map((e) => e.toOperatorImage).toList();
     } catch (e) {
       throw OperatorImageFailure(message: e.toString());
     }
@@ -224,6 +250,12 @@ extension on arknightsGameDataApi.Character {
         isSpChar: isSpChar,
         profession: profession,
         skills: skills.map((e) => e.skillId).toList());
+  }
+}
+
+extension on arknightsGameDataApi.OperatorImage {
+  OperatorImage get toOperatorImage {
+    return OperatorImage(name: name, headUrls: headUrls, imageUrls: imageUrls);
   }
 }
 

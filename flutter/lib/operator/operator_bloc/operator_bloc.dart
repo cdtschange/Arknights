@@ -35,9 +35,8 @@ class OperatorBloc extends Bloc<OperatorEvent, OperatorState> {
       OperatorRequestEvent event) async* {
     yield OperatorLoadInProgress(foldedGroup: state.foldedGroup);
     try {
-      //TODO
       final operators =
-          await _operatorRepository.fetchOperators(refresh: false); //!isLoaded
+          await _operatorRepository.fetchOperators(refresh: !isLoaded);
       isLoaded = true;
       yield OperatorLoadSuccess(
           operators: operators, foldedGroup: state.foldedGroup);

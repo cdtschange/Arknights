@@ -28,8 +28,7 @@ class ItemBloc extends Bloc<ItemEvent, ItemState> {
   Stream<ItemState> _mapItemRequestEventToState(ItemRequestEvent event) async* {
     yield ItemLoadInProgress();
     try {
-      //TODO
-      final items = await _itemRepository.fetchItems(false); //!isLoaded
+      final items = await _itemRepository.fetchItems(!isLoaded);
       isLoaded = true;
       yield ItemLoadSuccess(items: items);
     } catch (e) {

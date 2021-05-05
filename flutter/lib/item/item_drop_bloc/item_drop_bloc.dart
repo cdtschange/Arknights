@@ -28,10 +28,8 @@ class ItemDropBloc extends Bloc<ItemDropEvent, ItemDropState> {
       ItemDropRequestEvent event) async* {
     yield ItemDropLoadInProgress();
     try {
-      //TODO
-      final allItemDrops = await _itemRepository.fetchItemDrops(refresh: false);
-      // final allItemDrops =
-      //     await _itemRepository.fetchItemDrops(refresh: !isLoaded);
+      final allItemDrops =
+          await _itemRepository.fetchItemDrops(refresh: !isLoaded);
       isLoaded = true;
       yield ItemDropLoadSuccess(itemDrops: allItemDrops);
     } catch (e) {

@@ -12,3 +12,4 @@ export 'character_skill.dart';
 export 'character_skill_levelup_cost.dart';
 export 'skill.dart';
 export 'skill_level.dart';
+export 'operator_image.dart';

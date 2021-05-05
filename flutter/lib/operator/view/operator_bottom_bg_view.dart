@@ -14,7 +14,7 @@ class OperatorBottomBackgroudView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        top: height * 2.8,
+        top: height * 2.3,
         left: -width * 0.5,
         width: width * 2,
         child: Transform.rotate(
