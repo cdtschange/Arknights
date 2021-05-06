@@ -100,20 +100,24 @@ def fetchImages(browser, name):
         return fetchImages(browser, name)
     return result
 
-def fetchOperators(names):
+def fetchOperators(names, isAll):
     browser = webdriver.PhantomJS()
     index = 0
     result = readFile()
     for name in names:
-        if name in result.keys() and result[name] and len(result[name]['images']) > 0:
+        if name in result.keys() and result[name] and len(result[name]['images']) > 0 and not isAll:
             index += 1
             print(str(index) + ' ' + name + ' exists')
             continue
-        result[name] = fetchImages(browser, name)
+        newImages = fetchImages(browser, name)
         index += 1
-        print(str(index) + ' ' + name)
-        print(result[name])
-        writeFile(result)
+        if name not in result.keys() or not result[name] or len(result[name]['images']) < len(newImages['images']):
+            result[name] = newImages
+            print(str(index) + ' ' + name)
+            print(result[name])
+            writeFile(result)
+        else:
+            print(str(index) + ' ' + name + ' exists')
     browser.quit()
 
 
@@ -132,7 +136,7 @@ def fetchNames():
     return names
                         
 names = fetchNames()
-fetchOperators(names)
+fetchOperators(names, False)
 
 # user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0.3 Safari/605.1.15"
 

@@ -1,19 +1,5 @@
-[INFO  - 2021-04-29T12:20:11.567Z] GhostDriver - Main - running on port 56304
-[INFO  - 2021-04-29T12:20:12.538Z] Session [3f255340-a8e5-11eb-afe5-d54d48082e6b] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
-[INFO  - 2021-04-29T12:20:12.538Z] Session [3f255340-a8e5-11eb-afe5-d54d48082e6b] - page.customHeaders:  - {}
-[INFO  - 2021-04-29T12:20:12.538Z] Session [3f255340-a8e5-11eb-afe5-d54d48082e6b] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
-[INFO  - 2021-04-29T12:20:12.538Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 3f255340-a8e5-11eb-afe5-d54d48082e6b
-[ERROR - 2021-04-29T12:20:48.320Z] Session [3f255340-a8e5-11eb-afe5-d54d48082e6b] - page.onError - msg: undefined
-
-  phantomjs://platform/console++.js:263 in error
-[ERROR - 2021-04-29T12:20:48.321Z] Session [3f255340-a8e5-11eb-afe5-d54d48082e6b] - page.onError - stack:
-  (anonymous function) (https://pagead2.googlesyndication.com/pagead/js/r20210426/r20190131/show_ads_impl.js:21)
-
-  phantomjs://platform/console++.js:263 in error
-[ERROR - 2021-04-29T12:20:53.834Z] Session [3f255340-a8e5-11eb-afe5-d54d48082e6b] - page.onError - msg: undefined
-
-  phantomjs://platform/console++.js:263 in error
-[ERROR - 2021-04-29T12:20:53.834Z] Session [3f255340-a8e5-11eb-afe5-d54d48082e6b] - page.onError - stack:
-  (anonymous function) (https://pagead2.googlesyndication.com/pagead/js/r20210426/r20190131/show_ads_impl.js:21)
-
-  phantomjs://platform/console++.js:263 in error
+[INFO  - 2021-05-06T01:44:41.219Z] GhostDriver - Main - running on port 57942
+[INFO  - 2021-05-06T01:44:41.915Z] Session [a06a3e50-ae0c-11eb-a50f-03ed40d1f3ec] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2021-05-06T01:44:41.915Z] Session [a06a3e50-ae0c-11eb-a50f-03ed40d1f3ec] - page.customHeaders:  - {}
+[INFO  - 2021-05-06T01:44:41.915Z] Session [a06a3e50-ae0c-11eb-a50f-03ed40d1f3ec] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"mac-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2021-05-06T01:44:41.915Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: a06a3e50-ae0c-11eb-a50f-03ed40d1f3ec
